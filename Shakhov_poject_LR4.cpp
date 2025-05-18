@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 using namespace std;
+int day = 0, month = 0, year = 0, daysToAdd = 0;
 
 void menu(){
     cout << "Task 1. ввести текущий день" << endl;
@@ -14,7 +15,7 @@ void menu(){
 
 
 }
-
+ 
 bool UserInput(string input){
     if (input.empty()) return false;
 
@@ -46,18 +47,51 @@ void EnterNumber(int& a, string b){
 
 
 
-void DayInput(){
+void DayInput() {
+    EnterNumber(day, "Введите текущий день");
+}
 
+
+void MonthInput() {
+    EnterNumber(month, "Введите текущий месяц");
+}
+
+
+void YearInput() {
+    EnterNumber(year, "Введите текущий год");
+}
+
+
+
+void AddDay() {
+    EnterNumber(daysToAdd, "Введите количество дней для прибавления");
 
 }
 
 
-void MonthInput(){
+#include <ctime>
+#include <iomanip>
 
+void CalculateDate() {
+    if (day == 0 || month == 0 || year == 0 || daysToAdd == 0) {
+        cout << "Сначала введите дату и количество дней для прибавления.\n";
+        return;
+    }
 
+    tm date = {};
+    date.tm_mday = day;
+    date.tm_mon = month - 1;
+    date.tm_year = year - 1900;
+
+    time_t t = mktime(&date);
+    t += daysToAdd * 24 * 60 * 60;
+
+    tm *newDate = localtime(&t);
+    cout << "Новая дата: " << put_time(newDate, "%d-%m-%Y") << endl;
 }
 
 
+<<<<<<< HEAD
 void YearInput(){
 
 
@@ -80,6 +114,9 @@ void Difference() {
         cout << "Сначала введите текущую дату.\n";
         return;
     }
+
+
+
 
     tm current = {};
     current.tm_mday = day;
