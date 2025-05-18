@@ -75,9 +75,31 @@ void CalculateDate(){
 
 }
 
-void Difference(){
+void Difference() {
+    if (day == 0 || month == 0 || year == 0) {
+        cout << "Сначала введите текущую дату.\n";
+        return;
+    }
 
+    tm current = {};
+    current.tm_mday = day;
+    current.tm_mon = month - 1;
+    current.tm_year = year - 1900;
+
+    tm jan1 = {};
+    jan1.tm_mday = 1;
+    jan1.tm_mon = 0;
+    jan1.tm_year = year - 1900 + 1;
+
+    time_t t1 = mktime(&current);
+    time_t t2 = mktime(&jan1);
+
+    double seconds = difftime(t2, t1);
+    int days = static_cast<int>(seconds / (60 * 60 * 24));
+
+    cout << "Разница в днях до 1 января следующего года: " << days << endl;
 }
+
 
 
 struct MenuItem{
