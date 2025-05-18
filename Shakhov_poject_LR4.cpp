@@ -64,10 +64,10 @@ void YearInput(){
 }
 
 
-void AddDay(){
-
-
+void AddDay() {
+    EnterNumber(daysToAdd, "Введите количество дней для прибавления");
 }
+
 
 
 void CalculateDate(){
