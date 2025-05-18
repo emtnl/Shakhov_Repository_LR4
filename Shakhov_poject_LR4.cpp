@@ -69,10 +69,27 @@ void AddDay() {
 }
 
 
-void CalculateDate(){
+#include <ctime>
+#include <iomanip>
 
+void CalculateDate() {
+    if (day == 0 || month == 0 || year == 0 || daysToAdd == 0) {
+        cout << "Сначала введите дату и количество дней для прибавления.\n";
+        return;
+    }
 
+    tm date = {};
+    date.tm_mday = day;
+    date.tm_mon = month - 1;
+    date.tm_year = year - 1900;
+
+    time_t t = mktime(&date);
+    t += daysToAdd * 24 * 60 * 60;
+
+    tm *newDate = localtime(&t);
+    cout << "Новая дата: " << put_time(newDate, "%d-%m-%Y") << endl;
 }
+
 
 void Difference(){
 
