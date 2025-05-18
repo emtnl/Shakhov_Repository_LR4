@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 using namespace std;
+int day = 0, month = 0, year = 0, daysToAdd = 0;
 
 void menu(){
     cout << "Task 1. ввести текущий день" << endl;
@@ -14,7 +15,7 @@ void menu(){
 
 
 }
-
+ 
 bool UserInput(string input){
     if (input.empty()) return false;
 
@@ -46,28 +47,26 @@ void EnterNumber(int& a, string b){
 
 
 
-void DayInput(){
-
-
+void DayInput() {
+    EnterNumber(day, "Введите текущий день");
 }
 
 
-void MonthInput(){
-
-
+void MonthInput() {
+    EnterNumber(month, "Введите текущий месяц");
 }
 
 
-void YearInput(){
-
-
+void YearInput() {
+    EnterNumber(year, "Введите текущий год");
 }
+
 
 
 void AddDay() {
     EnterNumber(daysToAdd, "Введите количество дней для прибавления");
-}
 
+}
 
 
 void CalculateDate(){
