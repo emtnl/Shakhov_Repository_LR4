@@ -58,10 +58,10 @@ void MonthInput(){
 }
 
 
-void YearInput(){
-
-
+void YearInput() {
+    EnterNumber(year, "Введите текущий год");
 }
+
 
 
 void AddDay(){
