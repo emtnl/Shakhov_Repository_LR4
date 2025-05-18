@@ -52,10 +52,8 @@ void DayInput() {
 }
 
 
-
-void MonthInput(){
-
-
+void MonthInput() {
+    EnterNumber(month, "Введите текущий месяц");
 }
 
 
