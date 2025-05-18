@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 using namespace std;
+int day = 0, month = 0, year = 0, daysToAdd = 0;
 
 void menu(){
     cout << "Task 1. ввести текущий день" << endl;
@@ -46,10 +47,10 @@ void EnterNumber(int& a, string b){
 
 
 
-void DayInput(){
-
-
+void DayInput() {
+    EnterNumber(day, "Введите текущий день");
 }
+
 
 
 void MonthInput(){
